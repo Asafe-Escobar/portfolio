@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeanderson Escobar - Engenheiro de Software</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Light Speed Background -->
+    <div id="light-speed-bg">
+        <div class="light-rays"></div>
+        <div class="light-particles"></div>
+        <div class="speed-lines"></div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo" data-aos="fade-right">
+                <span class="logo-text">JEANDERSON ESCOBAR</span>
+                <span class="logo-subtitle">Software Engineer</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-avatar" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="avatar-ring"></div>
+                <div class="avatar-core">JE</div>
+                <div class="avatar-glow"></div>
+            </div>
+            <h1 class="hero-title">
+                <span class="hero-name" data-aos="fade-up" data-aos-delay="200">Jeanderson Asafe Visgueira Escobar</span>
+                <span class="hero-role" data-aos="fade-up" data-aos-delay="400">Software Engineer</span>
+                <span class="hero-specialization" data-aos="fade-up" data-aos-delay="600">Full-Stack Development & System Architecture</span>
+            </h1>
+            <div class="hero-description" data-aos="fade-up" data-aos-delay="800">
+                <p class="typing-text" id="typing-text">Desenvolvendo soluções escaláveis e inovadoras...</p>
+            </div>
+            <div class="hero-stats" data-aos="fade-up" data-aos-delay="1000">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="5">0</span>
+                    <span class="stat-label">Projetos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="1">0</span>
+                    <span class="stat-label">Ano Experiência</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="10">0</span>
+                    <span class="stat-label">Tecnologias</span>
+                </div>
+            </div>
+            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="1200">
+                <button class="btn btn-primary" onclick="scrollToSection('projects')">
+                    <i class="fas fa-code"></i>
+                    Ver Projetos
+                </button>
+                <button class="btn btn-secondary" onclick="scrollToSection('contact')">
+                    <i class="fas fa-envelope"></i>
+                    Contato
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Sobre Mim</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="text-block" data-aos="fade-right" data-aos-delay="100">
+                        <h3>Engenheiro de Software</h3>
+                        <p> Aluno de Engenharia de Software, com foco em desenvolvimento full-stack e arquitetura de sistemas. Apaixonado por resolver problemas reais por meio de soluções eficientes, escaláveis e bem estruturadas. Em constante evolução, buscando aplicar na prática os conhecimentos adquiridos na graduação.</p>
+                    </div>
+                    <div class="text-block" data-aos="fade-right" data-aos-delay="200">
+                        <h3>Metodologias & Práticas</h3>
+                        <p>Aplicação de metodologias ágeis, clean code, design patterns, e princípios SOLID. Experiência com DevOps, CI/CD, testes automatizados e documentação técnica.</p>
+                    </div>
+                    <div class="text-block" data-aos="fade-right" data-aos-delay="300">
+                        <h3>Foco em Qualidade</h3>
+                        <ul class="principle-list">
+                            <li><i class="fas fa-check"></i> Código limpo e manutenível</li>
+                            <li><i class="fas fa-check"></i> Arquitetura escalável</li>
+                            <li><i class="fas fa-check"></i> Performance otimizada</li>
+                            <li><i class="fas fa-check"></i> Experiência do usuário</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="about-visual" data-aos="fade-left" data-aos-delay="400">
+                    <div class="code-preview">
+                        <div class="code-header">
+                            <div class="code-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span class="code-title">software-engineer.js</span>
+                        </div>
+                        <div class="code-content">
+                            <pre><code>class SoftwareEngineer {
+  constructor() {
+    this.name = "Jeanderson Escobar";
+    this.role = "Full-Stack Developer";
+    this.education = "Engenharia de Software";
+  }
+
+  getSkills() {
+    return [
+      "JavaScript", "TypeScript", "Python",
+      "React", "Node.js", "Docker",
+      "AWS", "PostgreSQL", "MongoDB"
+    ];
+  }
+
+  buildSolutions() {
+    return "Scalable & Efficient Systems";
+  }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Habilidades Técnicas</h2>
+            
+            <div class="skills-categories">
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="category-title">Frontend Development</h3>
+                    <div class="skills-grid">
+                        <div class="skill-card" data-level="90" data-aos="flip-left" data-aos-delay="200">
+                            <div class="skill-icon">
+                                <i class="fab fa-js-square"></i>
+                            </div>
+                            <h4>JavaScript</h4>
+                            <p>ES6+, DOM, Async/Await</p>
+                            <div class="skill-level">
+                                <div class="level-bar" data-level="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card" data-level="85" data-aos="flip-left" data-aos-delay="300">
+                            <div class="skill-icon">
+                                <i class="fab fa-react"></i>
+                            </div>
+                            <h4>React</h4>
+                            <p>Hooks, Context, Redux</p>
+                            <div class="skill-level">
+                                <div class="level-bar" data-level="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card" data-level="80" data-aos="flip-left" data-aos-delay="400">
+                            <div class="skill-icon">
+                                <i class="fab fa-vuejs"></i>
+                            </div>
+                            <h4>Vue.js</h4>
+                            <p>Composition API, Vuex</p>
+                            <div class="skill-level">
+                                <div class="level-bar" data-level="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card" data-level="85" data-aos="flip-left" data-aos-delay="500">
+                            <div class="skill-icon">
+                                <i class="fab fa-css3-alt"></i>
+                            </div>
+                            <h4>CSS/SCSS</h4>
+                            <p>Flexbox, Grid, Animations</p>
+                            <div class="skill-level">
+                                <div class="level-bar" data-level="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="category-title">Backend Development</h3>
+                    <div class="skills-grid">
+                        <div class="skill-card" data-level="88" data-aos="flip-right" data-aos-delay="300">
+                            <div class="skill-icon">
+                                <i class="fab fa-node-js"></i>
+                            </div>
+                            <h4>Node.js</h4>
+                            <p>Express, APIs REST</p>
+                            <div class="skill-level">
+                                <div class="level-bar" data-level="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card" data-level="82" data-aos="flip-right" data-aos-delay="400">
+                            <div class="skill-icon">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <h4>Python</h4>
+                            <p>Django, FastAPI, Flask</p>
+                            <div class="skill-level">
+                                <div class="level-bar" data-level="82"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card" data-level="80" data-aos="flip-right" data-aos-delay="500">
+                            <div class="skill-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h4>PostgreSQL</h4>
+                            <p>Queries, Optimization</p>
+                            <div class="skill-level">
+                                <div class="level-bar" data-level="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card" data-level="75" data-aos="flip-right" data-aos-delay="600">
+                            <div class="skill-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <h4>MongoDB</h4>
+                            <p>NoSQL, Aggregation</p>
+                            <div class="skill-level">
+                                <div class="level-bar" data-level="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="category-title">DevOps & Tools</h3>
+                    <div class="skills-grid">
+                        <div class="skill-card" data-level="78" data-aos="zoom-in" data-aos-delay="400">
+                            <div class="skill-icon">
+                                <i class="fab fa-docker"></i>
+                            </div>
+                            <h4>Docker</h4>
+                            <p>Containers, Compose</p>
+                            <div class="skill-level">
+                                <div class="level-bar" data-level="78"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card" data-level="75" data-aos="zoom-in" data-aos-delay="500">
+                            <div class="skill-icon">
+                                <i class="fab fa-aws"></i>
+                            </div>
+                            <h4>AWS</h4>
+                            <p>EC2, S3, Lambda</p>
+                            <div class="skill-level">
+                                <div class="level-bar" data-level="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card" data-level="90" data-aos="zoom-in" data-aos-delay="600">
+                            <div class="skill-icon">
+                                <i class="fab fa-git-alt"></i>
+                            </div>
+                            <h4>Git</h4>
+                            <p>Version Control, Workflows</p>
+                            <div class="skill-level">
+                                <div class="level-bar" data-level="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card" data-level="70" data-aos="zoom-in" data-aos-delay="700">
+                            <div class="skill-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h4>CI/CD</h4>
+                            <p>GitHub Actions, Jenkins</p>
+                            <div class="skill-level">
+                                <div class="level-bar" data-level="70"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Meus Projetos</h2>
+            
+            <div class="github-status" id="github-status" data-aos="fade-up" data-aos-delay="100">
+                <div class="status-indicator">
+                    <i class="fab fa-github"></i>
+                    <span id="status-text">🚀 Conectando com o GitHub...</span>
+                </div>
+            </div>
+
+            <div class="project-filters" data-aos="fade-up" data-aos-delay="200">
+                <button class="filter-btn active" data-filter="all">Todos os Projetos</button>
+                <div id="language-filters"></div>
+            </div>
+
+            <div class="projects-grid" id="projects-grid">
+                <!-- Projects will be loaded here -->
+            </div>
+
+            <div class="loading-spinner" id="loading-spinner">
+                <div class="spinner"></div>
+                <p>Carregando projetos...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Entre em Contato</h2>
+            <div class="contact-content">
+                <div class="contact-form-container" data-aos="fade-right" data-aos-delay="200">
+                    <div class="form-header">
+                        <h3>Vamos conversar sobre seu projeto</h3>
+                        <p>Estou sempre interessado em novos desafios e oportunidades de colaboração.</p>
+                    </div>
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required>
+                            <label for="name">Nome</label>
+                            <div class="input-glow"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email">Email</label>
+                            <div class="input-glow"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" required>
+                            <label for="subject">Assunto</label>
+                            <div class="input-glow"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" required></textarea>
+                            <label for="message">Mensagem</label>
+                            <div class="input-glow"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+                <div class="contact-info" data-aos="fade-left" data-aos-delay="400">
+                    <div class="contact-card" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="card-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email</h4>
+                        <p>jeandersonescobar14@email.com</p>
+                    </div>
+                    <div class="contact-card" data-aos="zoom-in" data-aos-delay="600">
+                        <div class="card-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4>Localização</h4>
+                        <p>Teresina, PI Brasil</p>
+                    </div>
+                    <div class="contact-card" data-aos="zoom-in" data-aos-delay="700">
+                        <div class="card-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4>Disponibilidade</h4>
+                        <p>Segunda a Sexta, 9h às 18h</p>
+                    </div>
+                </div>
+            </div>
+            <div class="social-links" data-aos="fade-up" data-aos-delay="800">
+                <a href="#" class="social-link" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="social-link" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="social-link" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" data-aos="fade-up">
+        <div class="container">
+            <p>&copy; 2024 Jeanderson Escobar. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

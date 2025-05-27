@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeanderson Escobar - Intergalactic Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Starfield Background -->
+    <div id="starfield"></div>
+    <div id="nebula"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">ESCOBAR</span>
+                <span class="logo-subtitle">INTERGALACTIC</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Arsenal</a></li>
+                <li><a href="#projects" class="nav-link">Operations</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-avatar">
+                <div class="avatar-ring"></div>
+                <div class="avatar-core">JE</div>
+                <div class="avatar-particles"></div>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">JEANDERSON</span>
+                <span class="title-line main-name">ESCOBAR</span>
+                <span class="title-line subtitle">INTERGALACTIC DEVELOPER</span>
+            </h1>
+            <div class="hero-description">
+                <p class="typing-text" id="typing-text">Building digital empires across the galaxy...</p>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="50">0</span>
+                    <span class="stat-label">Missions</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="100">0</span>
+                    <span class="stat-label">Success Rate</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="25">0</span>
+                    <span class="stat-label">Galaxies</span>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="scrollToSection('projects')">
+                    <i class="fas fa-rocket"></i>
+                    Launch Operations
+                </button>
+                <button class="btn btn-secondary" onclick="scrollToSection('contact')">
+                    <i class="fas fa-satellite"></i>
+                    Make Contact
+                </button>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-text">THE ARCHITECT</span>
+                <span class="title-glow"></span>
+            </h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="text-block">
+                        <h3>Origin Story</h3>
+                        <p>From the depths of digital space, Jeanderson Asafe Visgueira Escobar emerged as a master of code, building intergalactic empires one algorithm at a time. Like the legendary figures who conquered territories, he conquers digital realms with precision and innovation.</p>
+                    </div>
+                    <div class="text-block">
+                        <h3>Mission Protocol</h3>
+                        <p>Every line of code is a strategic move in the cosmic chess game of development. Operating across multiple dimensions of technology, from frontend nebulae to backend black holes, crafting solutions that transcend ordinary limitations.</p>
+                    </div>
+                    <div class="text-block">
+                        <h3>Galactic Principles</h3>
+                        <ul class="principle-list">
+                            <li><i class="fas fa-star"></i> Precision in every quantum of code</li>
+                            <li><i class="fas fa-star"></i> Innovation through cosmic exploration</li>
+                            <li><i class="fas fa-star"></i> Building digital universes that endure</li>
+                            <li><i class="fas fa-star"></i> Loyalty to client success across all dimensions</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="hologram-container">
+                        <div class="hologram-avatar">
+                            <div class="hologram-lines"></div>
+                            <div class="avatar-3d">ESCOBAR</div>
+                            <div class="hologram-data">
+                                <div class="data-stream"></div>
+                                <div class="data-stream"></div>
+                                <div class="data-stream"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-text">ARSENAL OF TECHNOLOGIES</span>
+                <span class="title-glow"></span>
+            </h2>
+            <div class="skills-grid">
+                <div class="skill-card" data-skill="frontend">
+                    <div class="skill-icon">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <h3>Frontend Mastery</h3>
+                    <p>React, Vue.js, Angular, TypeScript</p>
+                    <div class="skill-level">
+                        <div class="level-bar" data-level="95"></div>
+                    </div>
+                    <div class="skill-particles"></div>
+                </div>
+                <div class="skill-card" data-skill="backend">
+                    <div class="skill-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Backend Empire</h3>
+                    <p>Node.js, Python, Express, Django</p>
+                    <div class="skill-level">
+                        <div class="level-bar" data-level="90"></div>
+                    </div>
+                    <div class="skill-particles"></div>
+                </div>
+                <div class="skill-card" data-skill="database">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Data Cosmos</h3>
+                    <p>MongoDB, PostgreSQL, Redis</p>
+                    <div class="skill-level">
+                        <div class="level-bar" data-level="85"></div>
+                    </div>
+                    <div class="skill-particles"></div>
+                </div>
+                <div class="skill-card" data-skill="devops">
+                    <div class="skill-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud Galaxy</h3>
+                    <p>AWS, Docker, Kubernetes</p>
+                    <div class="skill-level">
+                        <div class="level-bar" data-level="80"></div>
+                    </div>
+                    <div class="skill-particles"></div>
+                </div>
+                <div class="skill-card" data-skill="mobile">
+                    <div class="skill-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Dimension</h3>
+                    <p>React Native, Flutter</p>
+                    <div class="skill-level">
+                        <div class="level-bar" data-level="75"></div>
+                    </div>
+                    <div class="skill-particles"></div>
+                </div>
+                <div class="skill-card" data-skill="ai">
+                    <div class="skill-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI Universe</h3>
+                    <p>Machine Learning, Neural Networks</p>
+                    <div class="skill-level">
+                        <div class="level-bar" data-level="70"></div>
+                    </div>
+                    <div class="skill-particles"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-text">GALACTIC OPERATIONS</span>
+                <span class="title-glow"></span>
+            </h2>
+            <div class="github-status" id="github-status">
+                <div class="status-indicator">
+                    <i class="fas fa-satellite-dish"></i>
+                    <span id="status-text">Initializing galactic scan...</span>
+                </div>
+            </div>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All Operations</button>
+                <div id="language-filters"></div>
+            </div>
+            <div class="projects-grid" id="projects-grid">
+                <!-- Projects will be loaded here -->
+            </div>
+            <div class="loading-spinner" id="loading-spinner">
+                <div class="spinner"></div>
+                <p>Scanning the galaxy for operations...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-text">ESTABLISH CONTACT</span>
+                <span class="title-glow"></span>
+            </h2>
+            <div class="contact-content">
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required>
+                            <label for="name">Name</label>
+                            <div class="input-glow"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email">Email</label>
+                            <div class="input-glow"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" required>
+                            <label for="subject">Mission Type</label>
+                            <div class="input-glow"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" required></textarea>
+                            <label for="message">Mission Details</label>
+                            <div class="input-glow"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Transmit Message
+                        </button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="card-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Quantum Mail</h3>
+                        <p>jeanderson.escobar@galaxy.com</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="card-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Base Location</h3>
+                        <p>São Paulo, Earth, Milky Way</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="card-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Response Time</h3>
+                        <p>24-48 Earth Hours</p>
+                    </div>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Jeanderson Escobar. All rights reserved across all galaxies.</p>
+            <div class="footer-particles"></div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script-fixed.js"></script>
+</body>
+</html>

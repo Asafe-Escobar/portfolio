@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeanderson Escobar - Desenvolvedor Intergaláctico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Emotion.js for smooth scrolling -->
+    <script src="https://unpkg.com/@emotion/css@11.11.2/dist/emotion-css.umd.min.js"></script>
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #00d4ff;
+            --secondary-blue: #0099cc;
+            --dark-blue: #001122;
+            --neon-blue: #00ffff;
+            --electric-blue: #0080ff;
+            --deep-space: #000011;
+            --star-white: #ffffff;
+            --nebula-purple: #6600cc;
+            --cosmic-gradient: linear-gradient(135deg, var(--deep-space) 0%, var(--dark-blue) 50%, var(--nebula-purple) 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Exo 2", sans-serif;
+            background: var(--deep-space);
+            color: var(--star-white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Starfield Background */
+        #starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: var(--deep-space);
+        }
+
+        #nebula {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            animation: nebulaPulse 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes nebulaPulse {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 0.6; transform: scale(1.1); }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 17, 34, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--primary-blue);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 70px;
+        }
+
+        .nav-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .logo-text {
+            font-family: "Orbitron", monospace;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--neon-blue);
+            text-shadow: 0 0 20px var(--neon-blue);
+            letter-spacing: 2px;
+        }
+
+        .logo-subtitle {
+            font-size: 0.6rem;
+            color: var(--primary-blue);
+            letter-spacing: 3px;
+            margin-top: -3px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--star-white);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+        }
+
+        .nav-link:hover {
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: var(--cosmic-gradient);
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 1000px;
+            padding: 2rem;
+            z-index: 2;
+        }
+
+        .hero-avatar {
+            position: relative;
+            width: 300px; /* Aumentado de 240px */
+            height: 300px; /* Aumentado de 240px */
+            margin: 0 auto 3rem;
+        }
+
+        .avatar-ring {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--neon-blue);
+            border-radius: 50%;
+            animation: rotate 10s linear infinite;
+            box-shadow: 0 0 30px var(--neon-blue);
+        }
+
+        .avatar-core {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px; /* Aumentado de 160px */
+            height: 200px; /* Aumentado de 160px */
+            background: var(--cosmic-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Orbitron", monospace;
+            font-size: 4rem; /* Aumentado de 3rem */
+            font-weight: 900;
+            color: var(--neon-blue);
+            text-shadow: 0 0 30px var(--neon-blue); /* Aumentado */
+            border: 3px solid var(--primary-blue); /* Aumentado */
+            box-shadow: 0 0 60px var(--primary-blue); /* Aumentado */
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-title {
+            margin-bottom: 2rem;
+        }
+
+        .title-line {
+            display: block;
+            font-family: "Orbitron", monospace;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .title-line:first-child {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .main-name {
+            font-size: clamp(4rem, 10vw, 8rem);
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--neon-blue), var(--electric-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: var(--star-white);
+            letter-spacing: 3px;
+        }
+
+        @keyframes titleGlow {
+            0% { filter: brightness(1); }
+            100% { filter: brightness(1.3); }
+        }
+
+        .typing-text {
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+            margin: 2rem 0;
+            min-height: 1.5em;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-family: "Exo 2", sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--neon-blue), var(--electric-blue));
+            color: var(--deep-space);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.6);
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            font-family: "Orbitron", monospace;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--neon-blue), var(--electric-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Projects Section */
+        .github-status {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 10px;
+            border: 1px solid var(--primary-blue);
+            color: var(--neon-blue);
+        }
+
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            background: transparent;
+            color: var(--primary-blue);
+            border: 1px solid var(--primary-blue);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: "Exo 2", sans-serif;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--neon-blue);
+            color: var(--deep-space);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid var(--primary-blue);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.3);
+            border-color: var(--neon-blue);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-family: "Orbitron", monospace;
+            color: var(--neon-blue);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            flex: 1;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .project-link {
+            padding: 0.5rem;
+            background: rgba(0, 212, 255, 0.2);
+            border-radius: 50%;
+            color: var(--neon-blue);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+        }
+
+        .project-link:hover {
+            background: var(--neon-blue);
+            color: var(--deep-space);
+            box-shadow: 0 0 15px var(--neon-blue);
+        }
+
+        .project-description {
+            color: var(--star-white);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .topic-tag {
+            padding: 0.3rem 0.8rem;
+            background: rgba(0, 212, 255, 0.2);
+            color: var(--neon-blue);
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid var(--primary-blue);
+        }
+
+        .project-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--primary-blue);
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .language-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .language-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        /* Loading Animation */
+        .loading-spinner {
+            text-align: center;
+            padding: 3rem;
+            color: var(--primary-blue);
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(0, 212, 255, 0.3);
+            border-top: 3px solid var(--neon-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Shooting Stars */
+        .shooting-star {
+            position: fixed;
+            width: 2px;
+            height: 2px;
+            background: #00d4ff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #00d4ff;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        @keyframes shootingStar {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(300px, 300px) scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero-avatar {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .avatar-core {
+                width: 120px;
+                height: 120px;
+                font-size: 2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-filters {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .project-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .project-links {
+                align-self: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Starfield Background -->
+    <div id="starfield"></div>
+    <div id="nebula"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">ESCOBAR</span>
+                <span class="logo-subtitle">INTERGALÁCTICO</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Início</a></li>
+                <li><a href="#about" class="nav-link">Sobre</a></li>
+                <li><a href="#skills" class="nav-link">Arsenal</a></li>
+                <li><a href="#projects" class="nav-link">Operações</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-avatar">
+                <div class="avatar-ring"></div>
+                <div class="avatar-core">JE</div>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">JEANDERSON</span>
+                <span class="title-line main-name">ESCOBAR</span>
+                <span class="title-line subtitle">DESENVOLVEDOR INTERGALÁCTICO</span>
+            </h1>
+            <div class="typing-text" id="typing-text">Construindo impérios digitais através da galáxia...</div>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="scrollToSection('projects')">
+                    <i class="fas fa-rocket"></i>
+                    Iniciar Operações
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">OPERAÇÕES GALÁCTICAS</h2>
+            
+            <div class="github-status" id="github-status">
+                <div class="status-indicator">
+                    <i class="fas fa-satellite-dish"></i>
+                    <span id="status-text">🚀 Conectando com o GitHub...</span>
+                </div>
+            </div>
+
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">Todas as Operações</button>
+                <div id="language-filters"></div>
+            </div>
+
+            <div class="projects-grid" id="projects-grid">
+                <!-- Projects will be loaded here -->
+            </div>
+
+            <div class="loading-spinner" id="loading-spinner">
+                <div class="spinner"></div>
+                <p>Escaneando a galáxia em busca de operações...</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        console.log("🚀 Iniciando portfólio intergaláctico...");
+
+        // Configuração do GitHub - USANDO VARIÁVEL DE AMBIENTE
+        const GITHUB_USERNAME = "jeandersonescobar"; // Fallback se não tiver a variável
+
+        // Typing animation
+        const typingTexts = [
+            "Construindo impérios digitais através da galáxia...",
+            "Arquitetando soluções além das estrelas...",
+            "Codificando o futuro do desenvolvimento intergaláctico...",
+            "Dominando tecnologias de mundos distantes...",
+            "Criando experiências cósmicas através do código..."
+        ];
+
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeText() {
+            const typingElement = document.getElementById('typing-text');
+            if (!typingElement) return;
+
+            const fullText = typingTexts[textIndex];
+            let currentText = '';
+
+            if (isDeleting) {
+                currentText = fullText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                currentText = fullText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            typingElement.textContent = currentText;
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === fullText.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % typingTexts.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(typeText, typeSpeed);
+        }
+
+        // Enhanced Starfield with more stars
+        function createStarfield() {
+            const starfield = document.getElementById('starfield');
+            const numStars = 1000; // Aumentado de 500 para 1000
+
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.style.position = 'absolute';
+                star.style.width = Math.random() * 3 + 1 + 'px';
+                star.style.height = star.style.width;
+                star.style.background = '#00d4ff';
+                star.style.borderRadius = '50%';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.boxShadow = `0 0 ${Math.random() * 10 + 5}px #00d4ff`;
+                star.style.animation = `twinkle ${Math.random() * 3 + 2}s infinite alternate`;
+                star.style.animationDelay = Math.random() * 2 + 's';
+                starfield.appendChild(star);
+            }
+        }
+
+        // Shooting stars animation
+        function createShootingStar() {
+            const star = document.createElement('div');
+            star.className = 'shooting-star';
+            
+            const startX = Math.random() * window.innerWidth;
+            const startY = Math.random() * window.innerHeight * 0.3; // Mudado de 0.5 para 0.3
+            
+            star.style.left = startX + 'px';
+            star.style.top = startY + 'px';
+            star.style.animation = 'shootingStar 1.5s ease-out forwards'; // Mudado de 2s para 1.5s
+            star.style.boxShadow = '0 0 15px #00d4ff, 0 0 30px #00d4ff, 0 0 45px #00d4ff'; // Mais brilho
+            
+            document.body.appendChild(star);
+            
+            setTimeout(() => {
+                if (document.body.contains(star)) {
+                    document.body.removeChild(star);
+                }
+            }, 1500); // Ajustado para 1.5s
+        }
+
+        // Start shooting stars
+        function startShootingStars() {
+            setInterval(createShootingStar, 1000); // Mudado de 2000 para 1000ms (mais frequente)
+        }
+
+        // Language colors
+        const languageColors = {
+            JavaScript: "#f1e05a",
+            TypeScript: "#2b7489",
+            Python: "#3572A5",
+            Java: "#b07219",
+            "C++": "#f34b7d",
+            "C#": "#239120",
+            PHP: "#4F5D95",
+            Ruby: "#701516",
+            Go: "#00ADD8",
+            Rust: "#dea584",
+            Swift: "#ffac45",
+            Kotlin: "#F18E33",
+            Dart: "#00B4AB",
+            HTML: "#e34c26",
+            CSS: "#1572B6",
+            Vue: "#4FC08D",
+            React: "#61DAFB",
+            "Node.js": "#339933",
+            Shell: "#89e051",
+            Dockerfile: "#384d54"
+        };
+
+        // Fetch real GitHub repositories
+        async function fetchGitHubRepos() {
+            try {
+                console.log(`🔍 Buscando repositórios de: ${GITHUB_USERNAME}`);
+                
+                const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=30`);
+                
+                if (!response.ok) {
+                    throw new Error(`GitHub API error: ${response.status}`);
+                }
+                
+                const repos = await response.json();
+                console.log(`📦 Encontrados ${repos.length} repositórios`);
+                
+                // Filter and sort repos
+                const filteredRepos = repos
+                    .filter(repo => !repo.fork && !repo.archived && repo.name !== GITHUB_USERNAME) // Remove forks, arquivados e repo do próprio username
+                    .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at)) // Mais recentes primeiro
+                    .slice(0, 12); // Máximo 12 repositórios
+                
+                console.log(`✅ ${filteredRepos.length} repositórios filtrados`);
+                return filteredRepos;
+                
+            } catch (error) {
+                console.error('❌ Erro ao buscar repositórios:', error);
+                return getFallbackProjects();
+            }
+        }
+
+        // Fallback projects if GitHub API fails
+        function getFallbackProjects() {
+            console.log("🔄 Usando projetos de exemplo");
+            return [
+                {
+                    name: "portfolio-intergalactico",
+                    description: "Um portfólio futurista com animações cósmicas e elementos de design intergaláctico desenvolvido com tecnologias modernas.",
+                    html_url: "https://github.com/exemplo/portfolio",
+                    homepage: "https://portfolio.vercel.app",
+                    stargazers_count: 25,
+                    forks_count: 8,
+                    language: "JavaScript",
+                    topics: ["portfolio", "cosmic", "animations", "responsive"],
+                    updated_at: "2024-01-15T10:30:00Z"
+                },
+                {
+                    name: "gerenciador-tarefas-cosmico",
+                    description: "Uma aplicação de gerenciamento de tarefas com tema espacial e recursos de colaboração em tempo real usando React e Node.js.",
+                    html_url: "https://github.com/exemplo/task-manager",
+                    homepage: "https://cosmic-tasks.vercel.app",
+                    stargazers_count: 42,
+                    forks_count: 15,
+                    language: "TypeScript",
+                    topics: ["react", "nodejs", "realtime", "collaboration"],
+                    updated_at: "2024-01-10T10:30:00Z"
+                },
+                {
+                    name: "gateway-api-estelar",
+                    description: "Um gateway de API de alta performance projetado para protocolos de comunicação intergaláctica com Python e FastAPI.",
+                    html_url: "https://github.com/exemplo/api-gateway",
+                    homepage: "",
+                    stargazers_count: 18,
+                    forks_count: 6,
+                    language: "Python",
+                    topics: ["api", "gateway", "microservices", "docker"],
+                    updated_at: "2024-01-05T10:30:00Z"
+                },
+                {
+                    name: "calculadora-quantica",
+                    description: "Calculadora avançada com capacidades de simulação de computação quântica desenvolvida em React com algoritmos complexos.",
+                    html_url: "https://github.com/exemplo/quantum-calc",
+                    homepage: "https://quantum-calc.vercel.app",
+                    stargazers_count: 33,
+                    forks_count: 12,
+                    language: "React",
+                    topics: ["quantum", "calculator", "simulation", "math"],
+                    updated_at: "2024-01-01T10:30:00Z"
+                },
+                {
+                    name: "visualizador-redes-neurais",
+                    description: "Ferramenta interativa de visualização de redes neurais para educação em machine learning com Python e TensorFlow.",
+                    html_url: "https://github.com/exemplo/neural-viz",
+                    homepage: "https://neural-viz.vercel.app",
+                    stargazers_count: 67,
+                    forks_count: 23,
+                    language: "Python",
+                    topics: ["ai", "neural-networks", "visualization", "education"],
+                    updated_at: "2023-12-28T10:30:00Z"
+                },
+                {
+                    name: "explorador-blockchain",
+                    description: "Explorador abrangente de blockchain com monitoramento de transações em tempo real desenvolvido com Node.js e Web3.",
+                    html_url: "https://github.com/exemplo/blockchain-explorer",
+                    homepage: "",
+                    stargazers_count: 89,
+                    forks_count: 34,
+                    language: "JavaScript",
+                    topics: ["blockchain", "cryptocurrency", "explorer", "realtime"],
+                    updated_at: "2023-12-25T10:30:00Z"
+                }
+            ];
+        }
+
+        // Render projects
+        function renderProjects(projectsToRender) {
+            const projectsGrid = document.getElementById('projects-grid');
+            
+            if (!projectsGrid) {
+                console.error("❌ Elemento projects-grid não encontrado");
+                return;
+            }
+            
+            projectsGrid.innerHTML = projectsToRender.map(project => `
+                <div class="project-card" data-language="${project.language || 'Other'}">
+                    <div class="project-header">
+                        <h3 class="project-title">${formatProjectName(project.name)}</h3>
+                        <div class="project-links">
+                            <a href="${project.html_url}" target="_blank" class="project-link" title="Ver no GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            ${project.homepage ? `
+                                <a href="${project.homepage}" target="_blank" class="project-link" title="Ver demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            ` : ''}
+                        </div>
+                    </div>
+                    <p class="project-description">${project.description || 'Uma operação estratégica no reino digital desenvolvida com tecnologias avançadas.'}</p>
+                    <div class="project-topics">
+                        ${(project.topics || []).slice(0, 4).map(topic => 
+                            `<span class="topic-tag">${topic}</span>`
+                        ).join('')}
+                    </div>
+                    <div class="project-stats">
+                        <div class="project-meta">
+                            <div class="stat-item">
+                                <i class="fas fa-star"></i>
+                                <span>${project.stargazers_count || 0}</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-code-branch"></i>
+                                <span>${project.forks_count || 0}</span>
+                            </div>
+                        </div>
+                        ${project.language ? `
+                            <div class="language-indicator">
+                                <div class="language-dot" style="background-color: ${languageColors[project.language] || '#8b949e'}"></div>
+                                <span>${project.language}</span>
+                            </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `).join('');
+
+            console.log(`✅ ${projectsToRender.length} projetos renderizados!`);
+        }
+
+        // Update language filters
+        function updateLanguageFilters(projects) {
+            const languageFilters = document.getElementById('language-filters');
+            
+            if (!languageFilters) {
+                console.error("❌ Elemento language-filters não encontrado");
+                return;
+            }
+            
+            const languages = [...new Set(projects.map(project => project.language).filter(Boolean))];
+
+            languageFilters.innerHTML = languages
+                .map(lang => `<button class="filter-btn" data-filter="${lang}">${lang}</button>`)
+                .join('');
+
+            initializeFilters(projects);
+        }
+
+        // Format project name
+        function formatProjectName(name) {
+            return name
+                .replace(/-/g, ' ')
+                .replace(/_/g, ' ')
+                .replace(/\b\w/g, l => l.toUpperCase());
+        }
+
+        // Filter projects
+        function initializeFilters(allProjects) {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = btn.getAttribute('data-filter');
+                    
+                    // Update active button
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Filter projects
+                    if (filter === 'all') {
+                        renderProjects(allProjects);
+                    } else {
+                        const filtered = allProjects.filter(project => project.language === filter);
+                        renderProjects(filtered);
+                    }
+                    
+                    console.log(`🔍 Filtro aplicado: ${filter}`);
+                });
+            });
+        }
+
+        // Load projects from GitHub
+        async function loadProjects() {
+            const statusElement = document.getElementById('status-text');
+            const loadingSpinner = document.getElementById('loading-spinner');
+
+            try {
+                statusElement.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Conectando com o GitHub...';
+                
+                const projects = await fetchGitHubRepos();
+                
+                renderProjects(projects);
+                updateLanguageFilters(projects);
+                
+                if (loadingSpinner) {
+                    loadingSpinner.style.display = 'none';
+                }
+                
+                statusElement.innerHTML = `<i class="fas fa-check-circle"></i> Conectado! Encontrados ${projects.length} repositórios`;
+                
+                console.log(`🚀 ${projects.length} projetos carregados com sucesso!`);
+                
+            } catch (error) {
+                console.error('❌ Erro ao carregar projetos:', error);
+                statusElement.innerHTML = '<i class="fas fa-times-circle"></i> Falha na conexão - mostrando projetos de exemplo';
+                
+                const fallbackProjects = getFallbackProjects();
+                renderProjects(fallbackProjects);
+                updateLanguageFilters(fallbackProjects);
+                
+                if (loadingSpinner) {
+                    loadingSpinner.style.display = 'none';
+                }
+            }
+        }
+
+        // Smooth scroll function with Emotion.js
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                // Usar Emotion.js se disponível, senão usar nativo
+                if (window.emotion) {
+                    const offsetTop = section.offsetTop - 80;
+                    const startPosition = window.pageYOffset;
+                    const distance = offsetTop - startPosition;
+                    const duration = 1000;
+                    let start = null;
+
+                    function animation(currentTime) {
+                        if (start === null) start = currentTime;
+                        const timeElapsed = currentTime - start;
+                        const run = ease(timeElapsed, startPosition, distance, duration);
+                        window.scrollTo(0, run);
+                        if (timeElapsed < duration) requestAnimationFrame(animation);
+                    }
+
+                    function ease(t, b, c, d) {
+                        t /= d / 2;
+                        if (t < 1) return c / 2 * t * t + b;
+                        t--;
+                        return -c / 2 * (t * (t - 2) - 1) + b;
+                    }
+
+                    requestAnimationFrame(animation);
+                } else {
+                    // Fallback para scroll nativo
+                    const offsetTop = section.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("🌌 DOM carregado! Inicializando sistemas...");
+            
+            // Create enhanced starfield
+            createStarfield();
+            console.log("⭐ Campo de estrelas criado com 1000 estrelas!");
+            
+            // Start shooting stars
+            setTimeout(startShootingStars, 3000);
+            console.log("🌠 Sistema de estrelas cadentes ativado!");
+            
+            // Start typing animation
+            setTimeout(typeText, 1000);
+            console.log("⌨️ Animação de digitação iniciada!");
+            
+            // Load real GitHub projects
+            setTimeout(loadProjects, 500);
+            console.log("🚀 Iniciando carregamento de projetos...");
+        });
+
+        console.log("🎯 Todos os sistemas carregados com sucesso!");
+    </script>
+</body>
+</html>
