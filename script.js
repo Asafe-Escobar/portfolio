@@ -67,11 +67,9 @@ async function fetchGitHubRepositories() {
     }
 
     const response = await fetch(
-      `https://api.github.com/users/${username}/repos?sort=updated&per_page=${maxRepos}&type=owner`,
-      { 
-        headers,
-        cache: 'no-cache'
-      }
+      `https://api.github.com/users/${username}/repos?sort=updated&per_page=6`,
+       
+       
     )
 
     if (!response.ok) {
