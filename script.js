@@ -6,7 +6,14 @@ const GITHUB_CONFIG = {
   maxRepos: 20,
   excludeForked: true,
   excludeArchived: true,
-  featuredRepos: ["portfolio", "projeto-principal", "app-importante"], // Seus repositórios em destaque
+  featuredRepos: [
+    "simple-background-design",
+    "contrato-masterclass",
+    "projeto-sia",
+    "carol-advogada",
+    "apresentacao-",
+    "Meca"
+  ], // Seus repositórios em destaque
 }
 
 // DOM Elements

@@ -615,7 +615,15 @@
         console.log("🚀 Iniciando portfólio intergaláctico...");
 
         // Configuração do GitHub - USANDO VARIÁVEL DE AMBIENTE
-        const GITHUB_USERNAME = "jeandersonescobar"; // Fallback se não tiver a variável
+        const GITHUB_USERNAME = "Asafe-Escobar"; // Username correto do GitHub
+        const FEATURED_REPOS = [
+            "simple-background-design",
+            "contrato-masterclass",
+            "projeto-sia",
+            "carol-advogada",
+            "apresentacao-",
+            "Meca"
+        ];
 
         // Typing animation
         const typingTexts = [
@@ -748,11 +756,17 @@
                 const repos = await response.json();
                 console.log(`📦 Encontrados ${repos.length} repositórios`);
                 
-                // Filter and sort repos
-                const filteredRepos = repos
-                    .filter(repo => !repo.fork && !repo.archived && repo.name !== GITHUB_USERNAME) // Remove forks, arquivados e repo do próprio username
-                    .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at)) // Mais recentes primeiro
-                    .slice(0, 12); // Máximo 12 repositórios
+                // Filter and sort repos - prioriza repositórios em destaque
+                const featuredReposList = repos.filter(repo => 
+                    FEATURED_REPOS.includes(repo.name) && !repo.fork && !repo.archived
+                );
+                
+                const otherRepos = repos.filter(repo => 
+                    !FEATURED_REPOS.includes(repo.name) && !repo.fork && !repo.archived && repo.name !== GITHUB_USERNAME
+                ).sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+                
+                // Combina repositórios em destaque primeiro, depois os outros
+                const filteredRepos = [...featuredReposList, ...otherRepos].slice(0, 12); // Máximo 12 repositórios
                 
                 console.log(`✅ ${filteredRepos.length} repositórios filtrados`);
                 return filteredRepos;

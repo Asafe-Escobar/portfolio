@@ -1,11 +1,18 @@
 // Configuration
 const GITHUB_CONFIG = {
   username: "Asafe-Escobar", 
-  token: "", // Adicione seu token se tiver (opcional)
+  token: "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", // Token do GitHub para maior rate limit
   maxRepos: 20,
   excludeForked: true,
   excludeArchived: true,
-  featuredRepos: ["portfolio", "projeto-principal", "app-importante"],
+  featuredRepos: [
+    "simple-background-design",
+    "contrato-masterclass",
+    "projeto-sia",
+    "carol-advogada",
+    "apresentacao-",
+    "Meca"
+  ],
 }
 
 // DOM Elements
