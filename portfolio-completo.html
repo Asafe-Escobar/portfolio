@@ -746,29 +746,44 @@
         async function fetchGitHubRepos() {
             try {
                 console.log(`🔍 Buscando repositórios de: ${GITHUB_USERNAME}`);
+                console.log('📌 Repositórios em destaque:', FEATURED_REPOS);
                 
-                const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=30`);
+                const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`);
                 
                 if (!response.ok) {
                     throw new Error(`GitHub API error: ${response.status}`);
                 }
                 
                 const repos = await response.json();
-                console.log(`📦 Encontrados ${repos.length} repositórios`);
+                console.log(`📦 Encontrados ${repos.length} repositórios totais`);
                 
                 // Filter and sort repos - prioriza repositórios em destaque
-                const featuredReposList = repos.filter(repo => 
-                    FEATURED_REPOS.includes(repo.name) && !repo.fork && !repo.archived
-                );
+                const featuredReposList = [];
+                const otherRepos = [];
                 
-                const otherRepos = repos.filter(repo => 
-                    !FEATURED_REPOS.includes(repo.name) && !repo.fork && !repo.archived && repo.name !== GITHUB_USERNAME
-                ).sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+                repos.forEach(repo => {
+                    if (repo.fork || repo.archived) {
+                        console.log(`⏭️ Pulando repo: ${repo.name} (fork: ${repo.fork}, archived: ${repo.archived})`);
+                        return;
+                    }
+                    
+                    if (FEATURED_REPOS.includes(repo.name)) {
+                        console.log(`⭐ Repo em destaque encontrado: ${repo.name}`);
+                        featuredReposList.push(repo);
+                    } else if (repo.name !== GITHUB_USERNAME) {
+                        otherRepos.push(repo);
+                    }
+                });
+                
+                // Ordena outros repos por data de atualização
+                otherRepos.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
                 
                 // Combina repositórios em destaque primeiro, depois os outros
                 const filteredRepos = [...featuredReposList, ...otherRepos].slice(0, 12); // Máximo 12 repositórios
                 
-                console.log(`✅ ${filteredRepos.length} repositórios filtrados`);
+                console.log(`✅ ${featuredReposList.length} repositórios em destaque, ${otherRepos.length} outros`);
+                console.log(`📋 Total exibindo: ${filteredRepos.length} repositórios`);
+                
                 return filteredRepos;
                 
             } catch (error) {

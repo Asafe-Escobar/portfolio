@@ -472,6 +472,68 @@ document.head.appendChild(notificationStyles)
 setTimeout(addCosmicEffects, 2000)
 
 // PROJECTS SECTION - GUARANTEED TO WORK
+// Fetch GitHub repositories
+async function fetchGitHubRepositories() {
+  const { username, token, maxRepos, featuredRepos, excludeForked, excludeArchived } = GITHUB_CONFIG
+
+  try {
+    console.log(`🔍 Conectando ao GitHub de ${username}...`)
+    
+    const headers = {
+      Accept: "application/vnd.github.v3+json",
+      "User-Agent": "Portfolio-Asafe-Escobar"
+    }
+
+    // Adiciona token se disponível
+    if (token) {
+      headers["Authorization"] = `token ${token}`
+    }
+
+    const response = await fetch(
+      `https://api.github.com/users/${username}/repos?sort=updated&per_page=50`,
+      { headers }
+    )
+
+    if (!response.ok) {
+      throw new Error(`GitHub API error: ${response.status}`)
+    }
+
+    const repos = await response.json()
+    console.log(`📦 ${repos.length} repositórios encontrados`)
+    
+    // Separar repositórios em destaque dos demais
+    const featured = []
+    const others = []
+
+    repos.forEach((repo) => {
+      // Pular forks e arquivados
+      if (excludeForked && repo.fork) return
+      if (excludeArchived && repo.archived) return
+      if (!repo.name) return
+
+      // Verificar se é um repo em destaque
+      if (featuredRepos.includes(repo.name)) {
+        console.log(`⭐ Repo em destaque encontrado: ${repo.name}`)
+        featured.push(repo)
+      } else {
+        others.push(repo)
+      }
+    })
+
+    // Ordenar outros por data de atualização
+    others.sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime())
+
+    // Retornar featured primeiro, depois outros (limitado a maxRepos)
+    const result = [...featured, ...others].slice(0, maxRepos)
+    console.log(`✅ ${featured.length} repositórios em destaque, ${others.length} outros`)
+    
+    return result
+  } catch (error) {
+    console.error("❌ Erro ao buscar repositórios:", error)
+    throw error
+  }
+}
+
 function getSampleProjects() {
   return [
     {
@@ -549,7 +611,7 @@ function getSampleProjects() {
   ]
 }
 
-function loadProjectsWithFallback() {
+async function loadProjectsWithFallback() {
   console.log("Loading projects...")
   const statusElement = document.getElementById("status-text")
   const projectsGrid = document.getElementById("projects-grid")
@@ -561,22 +623,34 @@ function loadProjectsWithFallback() {
   }
 
   // Show loading
-  statusElement.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Scanning the galaxy...'
+  statusElement.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Scanning the galaxy for your projects...'
 
-  // Load sample projects immediately
-  const projects = getSampleProjects()
-  renderProjects(projects)
-  updateLanguageFilters(projects)
+  try {
+    // Try to fetch from GitHub first
+    const projects = await fetchGitHubRepositories()
+    
+    if (projects && projects.length > 0) {
+      renderProjects(projects)
+      updateLanguageFilters(projects)
+      statusElement.innerHTML = `<i class="fas fa-check-circle"></i> Connected! Found ${projects.length} galactic operations from GitHub`
+      console.log("✅ GitHub projects loaded successfully!")
+    } else {
+      throw new Error("No projects found")
+    }
+  } catch (error) {
+    console.warn("⚠️ Could not load from GitHub, using sample projects:", error)
+    
+    // Fallback to sample projects
+    const projects = getSampleProjects()
+    renderProjects(projects)
+    updateLanguageFilters(projects)
+    statusElement.innerHTML = `<i class="fas fa-info-circle"></i> Showing sample operations`
+  }
 
   // Hide loading spinner
   if (loadingSpinner) {
     loadingSpinner.style.display = "none"
   }
-
-  // Update status
-  statusElement.innerHTML = `<i class="fas fa-check-circle"></i> Connected! Found ${projects.length} galactic operations`
-
-  console.log("Projects loaded successfully!")
 }
 
 function renderProjects(repos) {

@@ -74,9 +74,8 @@ async function fetchGitHubRepositories() {
     }
 
     const response = await fetch(
-      `https://api.github.com/users/${username}/repos?sort=updated&per_page=6`,
-       
-       
+      `https://api.github.com/users/${username}/repos?sort=updated&per_page=50`,
+      { headers }
     )
 
     if (!response.ok) {
@@ -104,31 +103,36 @@ async function fetchGitHubRepositories() {
 function filterAndSortRepos(repos) {
   const { excludeForked, excludeArchived, featuredRepos } = GITHUB_CONFIG
 
-  // Filter repositories
-  const filteredRepos = repos.filter((repo) => {
-    if (excludeForked && repo.fork) return false
-    if (excludeArchived && repo.archived) return false
-    if (!repo.name) return false
-    return true
-  })
+  console.log(`🔍 Filtrando ${repos.length} repositórios...`)
+  console.log('📌 Repositórios em destaque:', featuredRepos)
 
-  // Sort repositories (featured first, then by stars, then by update date)
-  filteredRepos.sort((a, b) => {
-    const aFeatured = featuredRepos.includes(a.name)
-    const bFeatured = featuredRepos.includes(b.name)
+  // Separar repositórios em destaque dos demais
+  const featured = []
+  const others = []
 
-    if (aFeatured && !bFeatured) return -1
-    if (!aFeatured && bFeatured) return 1
+  repos.forEach((repo) => {
+    // Pular forks e arquivados
+    if (excludeForked && repo.fork) return
+    if (excludeArchived && repo.archived) return
+    if (!repo.name) return
 
-    // If both featured or both not, sort by stars then update date
-    if (a.stargazers_count !== b.stargazers_count) {
-      return b.stargazers_count - a.stargazers_count
+    // Verificar se é um repo em destaque
+    if (featuredRepos.includes(repo.name)) {
+      console.log(`⭐ Repo em destaque encontrado: ${repo.name}`)
+      featured.push(repo)
+    } else {
+      others.push(repo)
     }
-
-    return new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
   })
 
-  return filteredRepos
+  // Ordenar outros por data de atualização
+  others.sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime())
+
+  // Retornar featured primeiro, depois outros
+  const result = [...featured, ...others]
+  console.log(`✅ ${featured.length} repositórios em destaque, ${others.length} outros`)
+  
+  return result
 }
 
 // Connected project loading
